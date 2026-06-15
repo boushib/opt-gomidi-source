@@ -49,7 +49,7 @@ func (me Version) Less(o Version) bool {
 
 // Parse parses the version out of the given string. Valid strings are "v0.0.1" or "1.0" or "12" etc.
 func Parse(v string) (*Version, error) {
-	v = strings.TrimLeft(v, "v")
+	v = strings.TrimPrefix(v, "v")
 	nums := strings.Split(v, ".")
 	var ns = make([]uint16, len(nums))
 
